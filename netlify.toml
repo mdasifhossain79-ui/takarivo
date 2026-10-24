@@ -1,0 +1,13 @@
+# ==========================================================================
+# Takarivo — netlify.toml
+# Purpose: Netlify build/deploy configuration. Serves the static frontend
+# and points Netlify at the Functions folder. No database, no build step
+# yet — this is a static HTML/CSS/JS site with serverless functions.
+# ==========================================================================
+
+[build]
+  publish = "."
+  functions = "netlify/functions"
+
+[functions]
+  node_bundler = "esbuild"

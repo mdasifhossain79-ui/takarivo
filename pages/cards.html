@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+    <script src="../js/supabase-config.js"></script>
+    <script src="../js/supabaseClient.js"></script>
+    <script src="../js/authGuard.js"></script>
+
+    <title>Cards — Takarivo</title>
+    <meta name="description" content="View your credit cards, limits, and due amounts in Takarivo.">
+
+    <link rel="icon" href="../assets/icons/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/layout.css">
+    <link rel="stylesheet" href="../css/sidebar.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/forms.css">
+    <link rel="stylesheet" href="../css/modal.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+    <div class="sidebar-layout">
+
+        <aside class="sidebar">
+
+            <div class="sidebar-brand">
+                <a href="../index.html">Takarivo</a>
+            </div>
+
+            <nav class="sidebar-nav" aria-label="Primary">
+                <ul>
+                    <li>
+                        <a href="dashboard.html">
+                            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="6" height="6" rx="1"/><rect x="11" y="3" width="6" height="6" rx="1"/><rect x="3" y="11" width="6" height="6" rx="1"/><rect x="11" y="11" width="6" height="6" rx="1"/></svg>
+                            <span>Overview</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="accounts.html">
+                            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6Z"/><path d="M13 10h3"/></svg>
+                            <span>Accounts</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="transactions.html">
+                            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h9l-2.5-2.5"/><path d="M16 13H7l2.5 2.5"/></svg>
+                            <span>Transactions</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="cards.html" aria-current="page">
+                            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="15" height="11" rx="1.5"/><path d="M2.5 8.5h15"/></svg>
+                            <span>Cards</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="budgets.html">
+                            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7"/><path d="M10 3v7l5 3"/></svg>
+                            <span>Budgets</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="goals.html">
+                            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7"/><circle cx="10" cy="10" r="3.5"/><circle cx="10" cy="10" r="0.5" fill="currentColor"/></svg>
+                            <span>Goals</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="reports.html">
+                            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16V9"/><path d="M10 16V4"/><path d="M16 16v-6"/></svg>
+                            <span>Reports</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="settings.html">
+                            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="2.5"/><path d="M10 3v2M10 15v2M17 10h-2M5 10H3M14.9 5.1l-1.4 1.4M6.5 13.5l-1.4 1.4M14.9 14.9l-1.4-1.4M6.5 6.5 5.1 5.1"/></svg>
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="help.html">
+                            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7"/><path d="M7.8 7.8a2.2 2.2 0 1 1 3.2 2c-.7.5-1 .9-1 1.7"/><path d="M10 14.2v.1"/></svg>
+                            <span>Help &amp; Support</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="sidebar-footer">
+                <button type="button" class="sidebar-logout" id="logout-btn">
+                    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M8 17H4.5A1.5 1.5 0 0 1 3 15.5v-11A1.5 1.5 0 0 1 4.5 3H8"/><path d="M13 13.5 17 10l-4-3.5"/><path d="M17 10H8"/></svg>
+                    <span>Logout</span>
+                </button>
+            </div>
+
+        </aside>
+
+        <main class="app-content" id="main-content">
+
+            <header class="app-header">
+
+                <div class="app-header-left">
+                    <button type="button" class="menu-toggle" id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="sidebar">
+                        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h14M3 10h14M3 14h14"/></svg>
+                    </button>
+                    <h1 class="page-title">Cards</h1>
+                </div>
+
+                <div class="app-header-search">
+                    <label for="header-search" class="visually-hidden">Search</label>
+                    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="9" r="6"/><path d="m17 17-3.5-3.5"/></svg>
+                    <input type="search" id="header-search" name="header-search" placeholder="Search">
+                </div>
+
+                <div class="app-header-right">
+
+                    <button type="button" class="icon-button" aria-label="Notifications">
+                        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 8a5 5 0 0 1 10 0c0 3.5 1.2 4.5 1.2 4.5H3.8S5 11.5 5 8Z"/><path d="M8.2 15.5a1.8 1.8 0 0 0 3.6 0"/></svg>
+                    </button>
+
+                    <div class="profile-menu">
+                        <button type="button" class="profile-trigger" id="profile-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="profile-dropdown">
+                            <span class="avatar" aria-hidden="true">JD</span>
+                            <span class="profile-name">Jane Doe</span>
+                            <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 8 5 5 5-5"/></svg>
+                        </button>
+
+                        <div class="profile-dropdown" id="profile-dropdown" role="menu" hidden>
+                            <a href="#" role="menuitem">Profile</a>
+                            <a href="settings.html" role="menuitem">Settings</a>
+                            <a href="#" role="menuitem">Logout</a>
+                        </div>
+                    </div>
+
+                </div>
+
+            </header>
+
+            <div class="stack">
+
+                <!-- Page header -->
+                <div class="page-header">
+                    <div>
+                        <p class="help-text">Manage</p>
+                        <h2>Credit Cards</h2>
+                    </div>
+                    <button type="button" class="primary-button" id="add-card-btn">
+                        <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4v12M4 10h12"/></svg>
+                        <span>Add Card</span>
+                    </button>
+                </div>
+
+                <!-- KPI cards (live data from Cards API) -->
+                <div class="grid-5">
+
+                    <div class="stat-card">
+                        <div class="stat-card-top">
+                            <span class="stat-icon" aria-hidden="true">
+                                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="4.5" width="15" height="11" rx="1.5"/><path d="M2.5 8.5h15"/></svg>
+                            </span>
+                            <span class="stat-label">Total Credit Limit</span>
+                        </div>
+                        <span class="stat-value" id="kpi-total-limit">৳0</span>
+                        <div class="stat-meta">
+                            <span class="stat-compare" id="kpi-card-count">0 cards</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-card-top">
+                            <span class="stat-icon" aria-hidden="true">
+                                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7"/><path d="M10 6.5v4l2.5 2.5"/></svg>
+                            </span>
+                            <span class="stat-label">Total Due</span>
+                        </div>
+                        <span class="stat-value" id="kpi-total-due">৳0</span>
+                        <div class="stat-meta">
+                            <span class="stat-compare" id="kpi-due-count">across 0 cards</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-card-top">
+                            <span class="stat-icon" aria-hidden="true">
+                                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 13 8 9l3 3 5-6"/><path d="M13 6h3v3"/></svg>
+                            </span>
+                            <span class="stat-label">Available Credit</span>
+                        </div>
+                        <span class="stat-value" id="kpi-available-credit">৳0</span>
+                        <div class="stat-meta">
+                            <span class="stat-compare">remaining balance</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-card-top">
+                            <span class="stat-icon" aria-hidden="true">
+                                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16V9"/><path d="M10 16V4"/><path d="M16 16v-6"/></svg>
+                            </span>
+                            <span class="stat-label">Utilization</span>
+                        </div>
+                        <span class="stat-value" id="kpi-utilization">0%</span>
+                        <div class="stat-meta">
+                            <span class="stat-compare">of total limit</span>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-card-top">
+                            <span class="stat-icon" aria-hidden="true">
+                                <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="14" height="13" rx="1.5"/><path d="M3 8h14M7 3v3M13 3v3"/></svg>
+                            </span>
+                            <span class="stat-label">Upcoming Due</span>
+                        </div>
+                        <span class="stat-value" id="kpi-upcoming-due">—</span>
+                        <div class="stat-meta">
+                            <span class="stat-compare" id="kpi-upcoming-due-card">No upcoming dues</span>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Card list -->
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title">Your Cards</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="transactions-table" id="cards-table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Card</th>
+                                        <th scope="col">Bank</th>
+                                        <th scope="col">Credit Limit</th>
+                                        <th scope="col">Due Amount</th>
+                                        <th scope="col">Available Credit</th>
+                                        <th scope="col">Utilization</th>
+                                        <th scope="col">Billing Cycle</th>
+                                        <th scope="col">Due Date</th>
+                                        <th scope="col">Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="cards-table-body">
+                                    <tr class="table-status-row">
+                                        <td colspan="9"><p class="help-text">Loading cards&hellip;</p></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+
+    </div>
+
+    <!-- Add / Edit Card modal -->
+    <div class="modal-overlay" id="card-modal" hidden>
+        <div class="modal" role="dialog" aria-modal="true" aria-labelledby="card-modal-title">
+
+            <div class="modal-header">
+                <h3 id="card-modal-title">Add Card</h3>
+                <button type="button" class="icon-button" id="card-modal-close-btn" aria-label="Close">
+                    <svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="m5 5 10 10M15 5 5 15"/></svg>
+                </button>
+            </div>
+
+            <form id="card-form" novalidate>
+                <div class="modal-body">
+
+                    <input type="hidden" id="card-id" name="card-id" value="">
+
+                    <div class="form-banner error" id="card-form-error" hidden>
+                        <span id="card-form-error-message"></span>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="card-bank-name">Bank Name</label>
+                            <input type="text" id="card-bank-name" name="card-bank-name">
+                            <span class="error-message" id="card-bank-name-error" hidden>Bank name is required.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="card-name">Card Name</label>
+                            <input type="text" id="card-name" name="card-name" placeholder="e.g. Takarivo Visa •••• 4821">
+                            <span class="error-message" id="card-name-error" hidden>Card name is required.</span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="card-type">Card Type</label>
+                            <input type="text" id="card-type" name="card-type" placeholder="e.g. Visa (optional)">
+                        </div>
+                        <div class="form-group">
+                            <label for="card-status">Status</label>
+                            <select id="card-status" name="card-status">
+                                <option value="Active">Active</option>
+                                <option value="Frozen">Frozen</option>
+                                <option value="Closed">Closed</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="card-credit-limit">Credit Limit</label>
+                            <input type="number" id="card-credit-limit" name="card-credit-limit" step="0.01" placeholder="0.00">
+                            <span class="error-message" id="card-credit-limit-error" hidden>Enter a credit limit greater than 0.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="card-due-amount">Due Amount</label>
+                            <input type="number" id="card-due-amount" name="card-due-amount" step="0.01" placeholder="0.00">
+                            <span class="help-text">Optional — defaults to 0 for a new card.</span>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="card-billing-cycle">Billing Cycle</label>
+                            <input type="text" id="card-billing-cycle" name="card-billing-cycle" placeholder="e.g. 1st – 30th">
+                        </div>
+                        <div class="form-group">
+                            <label for="card-due-date">Due Date</label>
+                            <input type="date" id="card-due-date" name="card-due-date">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="secondary-button" id="card-modal-cancel-btn">Cancel</button>
+                    <button type="submit" class="primary-button" id="save-card-btn">Save Card</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+
+    <script src="../js/app.js"></script>
+    <script src="../js/navigation.js"></script>
+    <script src="../js/cards.js"></script>
+</body>
+</html>

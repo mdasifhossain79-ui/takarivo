@@ -1,0 +1,239 @@
+/* ==========================================================================
+   Takarivo — header.css
+   Purpose: Styling for the reusable application header (app shell only).
+   ========================================================================== */
+
+.app-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+    padding: var(--space-3) var(--space-5);
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.app-header-left {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    min-width: 0;
+}
+
+.page-title {
+    font-size: 18px;
+    font-weight: 600;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Mobile menu button — hidden on desktop */
+.menu-toggle {
+    display: none;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: none;
+    color: var(--color-text);
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;
+}
+
+.menu-toggle:hover {
+    background-color: var(--color-elevated);
+}
+
+.menu-toggle svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* Search field */
+.app-header-search {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    flex: 1;
+    max-width: 360px;
+    padding: var(--space-2) var(--space-3);
+    background-color: var(--color-elevated);
+    border: 1px solid transparent;
+    border-radius: var(--radius-sm);
+}
+
+.app-header-search:focus-within {
+    background-color: var(--color-surface);
+    border-color: var(--color-primary);
+}
+
+.app-header-search svg {
+    width: 16px;
+    height: 16px;
+    color: var(--color-muted);
+    flex-shrink: 0;
+}
+
+.app-header-search input {
+    border: none;
+    background: none;
+    padding: 0;
+    width: 100%;
+}
+
+.app-header-search input:focus-visible {
+    outline: none;
+}
+
+/* Right cluster */
+.app-header-right {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    flex-shrink: 0;
+}
+
+/* Notification button */
+.icon-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: none;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+}
+
+.icon-button:hover {
+    background-color: var(--color-elevated);
+}
+
+.icon-button svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Profile menu */
+.profile-menu {
+    position: relative;
+}
+
+.profile-trigger {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    background: none;
+    color: var(--color-text);
+    padding: var(--space-1) var(--space-2);
+    border-radius: var(--radius-sm);
+}
+
+.profile-trigger:hover {
+    background-color: var(--color-elevated);
+}
+
+.avatar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.profile-name {
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.profile-trigger svg {
+    width: 14px;
+    height: 14px;
+    color: var(--color-muted);
+    flex-shrink: 0;
+}
+
+.profile-dropdown {
+    position: absolute;
+    top: calc(100% + var(--space-2));
+    right: 0;
+    min-width: 180px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: var(--space-2);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    z-index: 10;
+}
+
+.profile-dropdown[hidden] {
+    display: none;
+}
+
+.profile-dropdown a {
+    padding: var(--space-2) var(--space-2);
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+}
+
+.profile-dropdown a:hover {
+    background-color: var(--color-elevated);
+}
+
+/* Visually hidden (for the search label) */
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ==========================================================================
+   Responsive behavior
+   ========================================================================== */
+
+@media (max-width: 767px) {
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .app-header-search {
+        display: none;
+    }
+
+    .profile-name {
+        display: none;
+    }
+
+    /* Sidebar collapses off-canvas; menu-toggle reveals it */
+    .sidebar-layout .sidebar {
+        display: none;
+    }
+
+    .sidebar-layout.sidebar-open .sidebar {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 240px;
+        z-index: 20;
+    }
+
+}

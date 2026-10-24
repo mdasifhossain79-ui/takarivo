@@ -1,0 +1,62 @@
+/* ==========================================================================
+   Takarivo — reset.css
+   Purpose: Remove browser default styling so all elements start
+   from a clean, consistent baseline across browsers.
+   ========================================================================== */
+
+/* Box-sizing: makes width/height calculations predictable */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Margin reset */
+* {
+    margin: 0;
+}
+
+/* Padding reset */
+* {
+    padding: 0;
+}
+
+/* Heading reset (remove default font-size/weight browser styling) */
+h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
+}
+
+/* Link reset */
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* Image responsiveness */
+img, picture, svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+/* Button inheritance */
+button {
+    font: inherit;
+    color: inherit;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+/* Input inheritance */
+input, textarea, select {
+    font: inherit;
+    color: inherit;
+}
+
+/* Body base */
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}

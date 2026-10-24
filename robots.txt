@@ -1,0 +1,29 @@
+# Takarivo — robots.txt
+# Replace https://your-domain.example with your real deployed domain.
+
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /pages/login.html
+Allow: /pages/register.html
+Allow: /pages/forgot-password.html
+Allow: /pages/reset-password.html
+
+# Authenticated app pages — no value being indexed, and they redirect
+# to login for anyone (including crawlers) without a session anyway.
+Disallow: /pages/dashboard.html
+Disallow: /pages/accounts.html
+Disallow: /pages/transactions.html
+Disallow: /pages/cards.html
+Disallow: /pages/budgets.html
+Disallow: /pages/goals.html
+Disallow: /pages/reports.html
+Disallow: /pages/settings.html
+Disallow: /pages/help.html
+
+# Backend and internal files — never meant to be crawled
+Disallow: /netlify/
+Disallow: /database/
+Disallow: /python/
+
+Sitemap: https://your-domain.example/sitemap.xml

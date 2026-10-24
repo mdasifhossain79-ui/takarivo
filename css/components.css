@@ -1,0 +1,840 @@
+/* ==========================================================================
+   Takarivo — components.css
+   Purpose: Reusable button styles built on top of variables.css tokens.
+   ========================================================================== */
+
+/* ==========================================================================
+   Primary button
+   ========================================================================== */
+.primary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    font-weight: 600;
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+    transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.primary-button:hover:not(:disabled) {
+    background-color: var(--color-primary-dark);
+    transform: translateY(-1px);
+}
+
+.primary-button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   Secondary button
+   ========================================================================== */
+.secondary-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    background-color: var(--color-elevated);
+    color: var(--color-text);
+    font-weight: 600;
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+    transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.secondary-button:hover:not(:disabled) {
+    background-color: var(--color-border);
+    transform: translateY(-1px);
+}
+
+.secondary-button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   Outline button
+   ========================================================================== */
+.outline-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    background-color: transparent;
+    color: var(--color-primary);
+    font-weight: 600;
+    padding: 9px 15px;
+    border: 1px solid var(--color-primary);
+    border-radius: var(--radius-sm);
+    transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.outline-button:hover:not(:disabled) {
+    background-color: var(--color-elevated);
+    transform: translateY(-1px);
+}
+
+.outline-button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   Danger button
+   ========================================================================== */
+.danger-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    background-color: var(--color-danger);
+    color: #FFFFFF;
+    font-weight: 600;
+    padding: 10px 16px;
+    border-radius: var(--radius-sm);
+    transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.danger-button:hover:not(:disabled) {
+    background-color: #B7261D;
+    transform: translateY(-1px);
+}
+
+.danger-button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+/* ==========================================================================
+   Icon button (square, icon-only)
+   ========================================================================== */
+.icon-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background-color: transparent;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.icon-button:hover:not(:disabled) {
+    background-color: var(--color-elevated);
+    transform: translateY(-1px);
+}
+
+.icon-button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.icon-button svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* ==========================================================================
+   Small button (size modifier — combine with any button class above)
+   e.g. class="primary-button small-button"
+   ========================================================================== */
+.small-button {
+    padding: 6px 12px;
+    font-size: 11px;
+}
+
+/* ==========================================================================
+   Disabled state — applies to all buttons above
+   ========================================================================== */
+.primary-button:disabled,
+.secondary-button:disabled,
+.outline-button:disabled,
+.danger-button:disabled,
+.icon-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* ==========================================================================
+   Focus state — applies to all buttons above
+   ========================================================================== */
+.primary-button:focus-visible,
+.secondary-button:focus-visible,
+.outline-button:focus-visible,
+.danger-button:focus-visible,
+.icon-button:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Card
+   NOTE: no drop shadows — separation comes from the border only.
+   ========================================================================== */
+.card {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-5);
+}
+
+.card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    margin-bottom: var(--space-4);
+}
+
+.card-title {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--color-text);
+}
+
+.card-body {
+    color: var(--color-text);
+}
+
+.card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    margin-top: var(--space-4);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-border);
+}
+
+/* ==========================================================================
+   Stat card — compact card for a single metric
+   ========================================================================== */
+.stat-card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-5);
+}
+
+.stat-card-top {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.stat-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-sm);
+    background-color: var(--color-elevated);
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+.stat-icon svg {
+    width: 16px;
+    height: 16px;
+}
+
+.stat-card .stat-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-muted);
+}
+
+.stat-card .stat-value {
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.stat-meta {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.stat-card .stat-change {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.stat-compare {
+    font-size: 11px;
+    color: var(--color-muted);
+}
+
+.stat-card .stat-change.positive {
+    color: var(--color-success);
+}
+
+.stat-card .stat-change.negative {
+    color: var(--color-danger);
+}
+
+/* ==========================================================================
+   Chart container — sizes the Chart.js canvas responsively
+   ========================================================================== */
+.chart-container {
+    position: relative;
+    width: 100%;
+    height: 280px;
+}
+
+@media (max-width: 480px) {
+    .chart-container {
+        height: 220px;
+    }
+}
+
+/* ==========================================================================
+   Transactions table
+   ========================================================================== */
+.transactions-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    white-space: nowrap;
+}
+
+.transactions-table th {
+    text-align: left;
+    padding: var(--space-2) var(--space-3);
+    color: var(--color-muted);
+    font-weight: 600;
+    border-bottom: 1px solid var(--color-border);
+}
+
+.transactions-table td {
+    padding: var(--space-3);
+    border-bottom: 1px solid var(--color-border);
+    vertical-align: middle;
+    color: var(--color-text);
+}
+
+.transactions-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Amount — income vs expense are visually distinct */
+.amount {
+    font-weight: 600;
+}
+
+.amount.income {
+    color: var(--color-success);
+}
+
+.amount.expense {
+    color: var(--color-danger);
+}
+
+/* Type tag */
+.type-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px var(--space-2);
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.type-tag.income {
+    background-color: rgba(27, 138, 90, 0.12);
+    color: var(--color-success);
+}
+
+.type-tag.expense {
+    background-color: rgba(217, 48, 37, 0.12);
+    color: var(--color-danger);
+}
+
+.type-tag.transfer {
+    background-color: rgba(56, 88, 152, 0.12);
+    color: var(--color-primary);
+}
+
+/* Category tag — a light color per category, kept flat (no shadow) */
+.category-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px var(--space-2);
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    background-color: var(--color-elevated);
+    color: var(--color-text);
+}
+
+.category-tag[data-category="Food"] {
+    background-color: #FDEEDC;
+    color: #B5651D;
+}
+
+.category-tag[data-category="Transport"] {
+    background-color: #E3EEFB;
+    color: #2D5FA3;
+}
+
+.category-tag[data-category="Shopping"] {
+    background-color: #F3E8FB;
+    color: #7A3FA0;
+}
+
+.category-tag[data-category="Salary"] {
+    background-color: #E1F5EA;
+    color: #1B8A5A;
+}
+
+.category-tag[data-category="Bills"] {
+    background-color: #FDEAEA;
+    color: #B4302A;
+}
+
+.category-tag[data-category="Housing"] {
+    background-color: #E6EAF5;
+    color: #385898;
+}
+
+.category-tag[data-category="Utilities"] {
+    background-color: #FFF3D6;
+    color: #8A6400;
+}
+
+.category-tag[data-category="Entertainment"] {
+    background-color: #FDE4F0;
+    color: #A32D6E;
+}
+
+.category-tag[data-category="Other"] {
+    background-color: var(--color-elevated);
+    color: var(--color-muted);
+}
+
+.category-tag[data-category="Emergency"] {
+    background-color: #FFEBE0;
+    color: #B4540A;
+}
+
+.category-tag[data-category="Travel"] {
+    background-color: #E0F3F7;
+    color: #227A8A;
+}
+
+.category-tag[data-category="Vehicle"] {
+    background-color: #E8ECFB;
+    color: #4A4FA3;
+}
+
+.category-tag[data-category="Education"] {
+    background-color: #EAF7EA;
+    color: #2D7A3A;
+}
+
+.category-tag[data-category="Personal"] {
+    background-color: #FCEAF3;
+    color: #B23875;
+}
+
+/* ==========================================================================
+   Goal status tags (In Progress / Completed)
+   ========================================================================== */
+.status-tag.in-progress {
+    background-color: rgba(56, 88, 152, 0.12);
+    color: var(--color-primary);
+}
+
+.status-tag.completed {
+    background-color: rgba(27, 138, 90, 0.12);
+    color: var(--color-success);
+}
+
+/* ==========================================================================
+   Settings page-nav
+   ========================================================================== */
+.settings-nav {
+    flex-wrap: wrap;
+}
+
+/* ==========================================================================
+   Category chips (Settings — Categories section)
+   ========================================================================== */
+.category-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-4);
+}
+
+.category-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-1);
+    padding: var(--space-1) var(--space-2);
+    background-color: var(--color-elevated);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--color-text);
+}
+
+.chip-remove {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 16px;
+    height: 16px;
+    background: none;
+    color: var(--color-muted);
+    font-size: 14px;
+    line-height: 1;
+    border-radius: 50%;
+}
+
+.chip-remove:hover {
+    background-color: var(--color-border);
+    color: var(--color-danger);
+}
+
+/* ==========================================================================
+   Help search (reuses header search visuals outside the header)
+   ========================================================================== */
+.help-search {
+    max-width: none;
+}
+
+/* ==========================================================================
+   Popular Topics — tile grid
+   ========================================================================== */
+.topic-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+    padding: var(--space-4);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text);
+    font-weight: 500;
+    transition: background-color 0.15s ease, transform 0.15s ease;
+}
+
+.topic-tile:hover {
+    background-color: var(--color-elevated);
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   Accessible accordion (FAQ)
+   ========================================================================== */
+.accordion-item {
+    border-bottom: 1px solid var(--color-border);
+}
+
+.accordion-item:last-child {
+    border-bottom: none;
+}
+
+.accordion-item h4 {
+    margin: 0;
+}
+
+.accordion-trigger {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    width: 100%;
+    background: none;
+    color: var(--color-text);
+    font-weight: 600;
+    text-align: left;
+    padding: var(--space-3) 0;
+}
+
+.accordion-trigger:hover {
+    color: var(--color-primary);
+}
+
+.accordion-chevron {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    color: var(--color-muted);
+    transition: transform 0.15s ease;
+}
+
+.accordion-trigger[aria-expanded="true"] .accordion-chevron {
+    transform: rotate(180deg);
+}
+
+.accordion-panel {
+    padding: 0 0 var(--space-3);
+    color: var(--color-muted);
+}
+
+.accordion-panel[hidden] {
+    display: none;
+}
+
+/* ==========================================================================
+   Guide list rows
+   ========================================================================== */
+.guide-item {
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.guide-item:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+/* ==========================================================================
+   System status rows + dot indicator
+   ========================================================================== */
+.status-row {
+    padding-bottom: var(--space-2);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.status-row:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.status-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: currentColor;
+    margin-right: 4px;
+}
+
+/* ==========================================================================
+   Budget status tags (On Track / Near Limit / Over Budget)
+   ========================================================================== */
+.status-tag.on-track {
+    background-color: rgba(27, 138, 90, 0.12);
+    color: var(--color-success);
+}
+
+.status-tag.near-limit {
+    background-color: rgba(230, 167, 0, 0.15);
+    color: #8A6400;
+}
+
+.status-tag.critical {
+    background-color: rgba(230, 126, 0, 0.15);
+    color: #B45C00;
+}
+
+.status-tag.over-budget {
+    background-color: rgba(217, 48, 37, 0.12);
+    color: var(--color-danger);
+}
+
+/* Full-width button modifier */
+.block-button {
+    width: 100%;
+}
+
+/* ==========================================================================
+   Status tag — account status (Active / Frozen / Closed)
+   ========================================================================== */
+.status-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 2px var(--space-2);
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+}
+
+.status-tag.active {
+    background-color: rgba(27, 138, 90, 0.12);
+    color: var(--color-success);
+}
+
+.status-tag.frozen {
+    background-color: rgba(230, 167, 0, 0.15);
+    color: #8A6400;
+}
+
+.status-tag.closed {
+    background-color: var(--color-elevated);
+    color: var(--color-muted);
+}
+
+/* ==========================================================================
+   Filter bar — Transactions page
+   ========================================================================== */
+.filter-bar {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-3);
+}
+
+.filter-bar .form-group {
+    margin-bottom: 0;
+    flex: 1;
+    min-width: 160px;
+}
+
+/* ==========================================================================
+   Small icon button (table row actions)
+   ========================================================================== */
+.icon-button-sm {
+    width: 28px;
+    height: 28px;
+}
+
+.icon-button-sm svg {
+    width: 14px;
+    height: 14px;
+}
+
+.action-buttons {
+    display: flex;
+    align-items: center;
+    gap: var(--space-1);
+}
+
+/* ==========================================================================
+   Table status row — loading / empty / error states inside a data table
+   ========================================================================== */
+.table-status-row td {
+    text-align: center;
+    padding: var(--space-6) var(--space-3);
+}
+
+.table-status-row .help-text.is-error {
+    color: var(--color-danger);
+    margin-bottom: var(--space-2);
+}
+
+/* ==========================================================================
+   Pagination bar
+   ========================================================================== */
+.pagination-bar {
+    margin-top: var(--space-4);
+    padding-top: var(--space-4);
+    border-top: 1px solid var(--color-border);
+}
+
+.delete-btn:hover {
+    background-color: rgba(217, 48, 37, 0.1);
+    color: var(--color-danger);
+    border-color: var(--color-danger);
+}
+
+/* ==========================================================================
+   Card cell — icon + label inside a table cell (Cards page)
+   ========================================================================== */
+.card-cell {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 26px;
+    height: 26px;
+    border-radius: var(--radius-sm);
+    background-color: var(--color-elevated);
+    color: var(--color-primary);
+    flex-shrink: 0;
+}
+
+.card-icon svg {
+    width: 14px;
+    height: 14px;
+}
+
+/* ==========================================================================
+   Utilization bar — flat progress indicator, no shadows
+   ========================================================================== */
+.utilization {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-1);
+    min-width: 90px;
+}
+
+.utilization-bar {
+    width: 100%;
+    height: 6px;
+    border-radius: 999px;
+    background-color: var(--color-elevated);
+    overflow: hidden;
+}
+
+.utilization-fill {
+    height: 100%;
+    border-radius: 999px;
+}
+
+.utilization-fill.low {
+    background-color: var(--color-success);
+}
+
+.utilization-fill.medium {
+    background-color: var(--color-warning);
+}
+
+.utilization-fill.high {
+    background-color: var(--color-danger);
+}
+
+/* ==========================================================================
+   Placeholder list — simple demo rows (transactions, bills, categories...)
+   ========================================================================== */
+.placeholder-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+}
+
+.placeholder-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-3);
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid var(--color-border);
+}
+
+.placeholder-row:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+/* ==========================================================================
+   Responsive behavior
+   ========================================================================== */
+@media (max-width: 767px) {
+
+    .card,
+    .stat-card {
+        padding: var(--space-4);
+    }
+
+    .card-header,
+    .card-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-2);
+    }
+
+}

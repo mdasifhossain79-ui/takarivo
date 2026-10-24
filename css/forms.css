@@ -1,0 +1,210 @@
+/* ==========================================================================
+   Takarivo — forms.css
+   Purpose: Reusable, accessible form field styles.
+   ========================================================================== */
+
+/* ==========================================================================
+   Label
+   ========================================================================== */
+label {
+    display: block;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-text);
+    margin-bottom: var(--space-1);
+}
+
+/* ==========================================================================
+   Text inputs, select, textarea
+   ========================================================================== */
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="url"],
+input[type="date"],
+select,
+textarea {
+    display: block;
+    width: 100%;
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: var(--space-2) var(--space-3);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+textarea {
+    resize: vertical;
+    min-height: 96px;
+}
+
+input::placeholder,
+textarea::placeholder {
+    color: var(--color-muted);
+}
+
+/* Focus state */
+input[type="text"]:focus-visible,
+input[type="email"]:focus-visible,
+input[type="password"]:focus-visible,
+input[type="number"]:focus-visible,
+input[type="search"]:focus-visible,
+input[type="tel"]:focus-visible,
+input[type="url"]:focus-visible,
+input[type="date"]:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(56, 88, 152, 0.15);
+}
+
+/* Disabled state */
+input:disabled,
+select:disabled,
+textarea:disabled {
+    background-color: var(--color-elevated);
+    color: var(--color-muted);
+    cursor: not-allowed;
+}
+
+/* ==========================================================================
+   Checkbox and radio
+   ========================================================================== */
+input[type="checkbox"],
+input[type="radio"] {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--color-primary);
+    cursor: pointer;
+}
+
+.checkbox-item,
+.radio-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+}
+
+.checkbox-item label,
+.radio-item label {
+    margin-bottom: 0;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:focus-visible,
+input[type="radio"]:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* ==========================================================================
+   Form group — label + field + help/error text
+   ========================================================================== */
+.form-group {
+    margin-bottom: var(--space-4);
+}
+
+/* ==========================================================================
+   Form row — multiple fields side by side, wraps on small screens
+   ========================================================================== */
+.form-row {
+    display: flex;
+    gap: var(--space-3);
+}
+
+.form-row .form-group {
+    flex: 1;
+    margin-bottom: 0;
+}
+
+/* ==========================================================================
+   Form actions — buttons row
+   ========================================================================== */
+.form-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: var(--space-3);
+    margin-top: var(--space-5);
+}
+
+/* ==========================================================================
+   Help text
+   ========================================================================== */
+.help-text {
+    font-size: 11px;
+    color: var(--color-muted);
+    margin-top: var(--space-1);
+}
+
+/* ==========================================================================
+   Error message
+   ========================================================================== */
+.error-message {
+    font-size: 11px;
+    font-weight: 500;
+    color: var(--color-danger);
+    margin-top: var(--space-1);
+}
+
+/* ==========================================================================
+   Validation states
+   ========================================================================== */
+.form-group.has-error input,
+.form-group.has-error select,
+.form-group.has-error textarea,
+input[aria-invalid="true"],
+select[aria-invalid="true"],
+textarea[aria-invalid="true"] {
+    border-color: var(--color-danger);
+}
+
+.form-group.has-error input:focus-visible,
+.form-group.has-error select:focus-visible,
+.form-group.has-error textarea:focus-visible,
+input[aria-invalid="true"]:focus-visible,
+select[aria-invalid="true"]:focus-visible,
+textarea[aria-invalid="true"]:focus-visible {
+    border-color: var(--color-danger);
+    box-shadow: 0 0 0 3px rgba(217, 48, 37, 0.15);
+}
+
+.form-group.has-success input,
+.form-group.has-success select,
+.form-group.has-success textarea {
+    border-color: var(--color-success);
+}
+
+.form-group.has-success input:focus-visible,
+.form-group.has-success select:focus-visible,
+.form-group.has-success textarea:focus-visible {
+    border-color: var(--color-success);
+    box-shadow: 0 0 0 3px rgba(27, 138, 90, 0.15);
+}
+
+/* ==========================================================================
+   Responsive behavior
+   ========================================================================== */
+@media (max-width: 600px) {
+
+    .form-row {
+        flex-direction: column;
+        gap: var(--space-4);
+    }
+
+    .form-row .form-group {
+        margin-bottom: 0;
+    }
+
+    .form-actions {
+        flex-direction: column-reverse;
+        align-items: stretch;
+    }
+
+}

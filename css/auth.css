@@ -1,0 +1,186 @@
+/* ==========================================================================
+   Takarivo — auth.css
+   Purpose: Layout for standalone auth pages (Login, future Sign Up),
+   which don't use the sidebar/header app shell.
+   ========================================================================== */
+
+.auth-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4);
+    background-color: var(--color-elevated);
+}
+
+.auth-card {
+    width: 100%;
+    max-width: 420px;
+}
+
+.auth-brand {
+    text-align: center;
+    margin-bottom: var(--space-6);
+}
+
+.auth-logo {
+    display: inline-block;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: var(--space-1);
+}
+
+.auth-options {
+    margin-bottom: var(--space-5);
+}
+
+.auth-actions {
+    margin-top: 0;
+}
+
+.auth-footer-text {
+    text-align: center;
+    margin-top: var(--space-5);
+    font-size: 12px;
+    color: var(--color-muted);
+}
+
+.auth-footer-text a {
+    font-weight: 600;
+}
+
+/* ==========================================================================
+   Form-level banner (e.g. simulated "account not found" error)
+   ========================================================================== */
+.form-banner {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3);
+    border-radius: var(--radius-sm);
+    font-size: 12px;
+    font-weight: 500;
+    margin-bottom: var(--space-4);
+}
+
+.form-banner.error {
+    background-color: rgba(217, 48, 37, 0.1);
+    color: var(--color-danger);
+}
+
+.form-banner[hidden] {
+    display: none;
+}
+
+/* ==========================================================================
+   Success state (Forgot Password)
+   ========================================================================== */
+.success-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin: 0 auto var(--space-4);
+    border-radius: 50%;
+    background-color: rgba(27, 138, 90, 0.12);
+    color: var(--color-success);
+}
+
+.success-icon svg {
+    width: 24px;
+    height: 24px;
+}
+
+.success-state {
+    text-align: center;
+}
+
+.success-state h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: var(--space-2);
+}
+
+.success-state p {
+    margin-bottom: var(--space-4);
+}
+
+/* ==========================================================================
+   Password strength meter + requirements checklist
+   ========================================================================== */
+.password-strength {
+    margin-top: var(--space-2);
+    margin-bottom: var(--space-3);
+}
+
+.strength-bar {
+    height: 4px;
+    border-radius: 999px;
+    background-color: var(--color-elevated);
+    overflow: hidden;
+}
+
+.strength-bar-fill {
+    height: 100%;
+    width: 0%;
+    border-radius: 999px;
+    background-color: var(--color-border);
+    transition: width 0.2s ease, background-color 0.2s ease;
+}
+
+.strength-bar-fill.weak {
+    width: 33%;
+    background-color: var(--color-danger);
+}
+
+.strength-bar-fill.medium {
+    width: 66%;
+    background-color: var(--color-warning);
+}
+
+.strength-bar-fill.strong {
+    width: 100%;
+    background-color: var(--color-success);
+}
+
+.strength-label {
+    display: block;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--color-muted);
+    margin-top: var(--space-1);
+}
+
+.requirements-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin-top: var(--space-2);
+    margin-bottom: var(--space-4);
+}
+
+.requirements-list li {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--color-muted);
+}
+
+.requirements-list li svg {
+    width: 12px;
+    height: 12px;
+    flex-shrink: 0;
+    color: var(--color-border);
+}
+
+.requirements-list li.met {
+    color: var(--color-success);
+}
+
+.requirements-list li.met svg {
+    color: var(--color-success);
+}

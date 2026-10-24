@@ -1,0 +1,208 @@
+/* ==========================================================================
+   Takarivo — responsive.css
+   Purpose: Make the existing app shell (sidebar, header, layout) responsive
+   across the requested breakpoints. Mobile-first (min-width) cascade.
+   Load this file LAST, after all other stylesheets.
+   ========================================================================== */
+
+/* ==========================================================================
+   Base (< 299px) — smallest supported width
+   ========================================================================== */
+.app-header {
+    padding: var(--space-2) var(--space-3);
+}
+
+.page-title {
+    font-size: 14px;
+}
+
+.container {
+    padding-inline: var(--space-2);
+}
+
+/* Forward-prep utility for tables (no table component built yet) */
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* ==========================================================================
+   299px and up
+   ========================================================================== */
+@media (min-width: 299px) {
+    .app-header-right {
+        gap: var(--space-2);
+    }
+}
+
+/* ==========================================================================
+   320px and up
+   ========================================================================== */
+@media (min-width: 320px) {
+    .container {
+        padding-inline: var(--space-3);
+    }
+
+    .page-title {
+        font-size: 15px;
+    }
+}
+
+/* ==========================================================================
+   340px and up
+   ========================================================================== */
+@media (min-width: 340px) {
+    .app-header-right {
+        gap: var(--space-3);
+    }
+}
+
+/* ==========================================================================
+   359px and up
+   ========================================================================== */
+@media (min-width: 359px) {
+    .app-header {
+        padding: var(--space-3) var(--space-3);
+    }
+}
+
+/* ==========================================================================
+   360px and up
+   ========================================================================== */
+@media (min-width: 360px) {
+    .card,
+    .stat-card {
+        padding: var(--space-4);
+    }
+}
+
+/* ==========================================================================
+   375px and up
+   ========================================================================== */
+@media (min-width: 375px) {
+    .page-title {
+        font-size: 16px;
+    }
+}
+
+/* ==========================================================================
+   389px and up
+   ========================================================================== */
+@media (min-width: 389px) {
+    .app-content {
+        padding: var(--space-4);
+    }
+}
+
+/* ==========================================================================
+   390px and up
+   ========================================================================== */
+@media (min-width: 390px) {
+    .form-actions {
+        flex-direction: row;
+        align-items: center;
+    }
+}
+
+/* ==========================================================================
+   768px and up — TABLET
+   Sidebar becomes collapsible (icon-only by default, still a fixed
+   column — not an off-canvas drawer). Header regains breathing room.
+   ========================================================================== */
+@media (min-width: 768px) {
+
+    .sidebar-layout .sidebar {
+        display: flex;
+    }
+
+    .sidebar-layout {
+        grid-template-columns: 72px 1fr;
+    }
+
+    .sidebar-brand span:not(.visually-hidden),
+    .sidebar-nav span,
+    .sidebar-logout span,
+    .profile-name {
+        display: none;
+    }
+
+    .sidebar-nav a,
+    .sidebar-logout {
+        justify-content: center;
+    }
+
+    .menu-toggle {
+        display: none;
+    }
+
+    .app-header-search {
+        display: flex;
+    }
+
+    .app-content {
+        padding: var(--space-5);
+    }
+
+    .page-title {
+        font-size: 18px;
+    }
+}
+
+/* ==========================================================================
+   768px – 1023px — grid-4 collapses to 2 columns on tablet
+   ========================================================================== */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .grid-4,
+    .grid-5 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ==========================================================================
+   1024px and up — DESKTOP
+   Sidebar fully expanded and always visible (labels return).
+   ========================================================================== */
+@media (min-width: 1024px) {
+
+    .sidebar-layout {
+        grid-template-columns: 240px 1fr;
+    }
+
+    .sidebar-brand span:not(.visually-hidden),
+    .sidebar-nav span,
+    .sidebar-logout span,
+    .profile-name {
+        display: inline;
+    }
+
+    .sidebar-nav a,
+    .sidebar-logout {
+        justify-content: flex-start;
+    }
+}
+
+/* ==========================================================================
+   1280px and up — wide desktop
+   More generous content breathing room.
+   ========================================================================== */
+@media (min-width: 1280px) {
+    .app-content {
+        padding: var(--space-6);
+    }
+
+    .container {
+        padding-inline: var(--space-5);
+    }
+}
+
+/* ==========================================================================
+   1440px and up — extra-wide desktop
+   Cap content width so text/cards don't stretch too far.
+   ========================================================================== */
+@media (min-width: 1440px) {
+    .app-content {
+        max-width: 1400px;
+        margin-inline: auto;
+    }
+}

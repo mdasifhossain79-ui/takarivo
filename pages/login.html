@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sign In — Takarivo</title>
+    <meta name="description" content="Sign in to Takarivo, your personal finance manager.">
+
+    <link rel="icon" href="../assets/icons/favicon.ico" type="image/x-icon">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+    <script src="../js/supabase-config.js"></script>
+    <script src="../js/supabaseClient.js"></script>
+
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/forms.css">
+    <link rel="stylesheet" href="../css/auth.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+    <div class="auth-page">
+        <div class="auth-card card">
+
+            <div class="auth-brand">
+                <a href="../index.html" class="auth-logo">Takarivo</a>
+                <p class="help-text">Personal Finance Manager</p>
+            </div>
+
+            <form id="login-form" novalidate>
+
+                <div class="form-banner error" id="login-error-banner" hidden>
+                    <span id="login-error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="login-email">Email</label>
+                    <input type="email" id="login-email" name="login-email" placeholder="you@example.com">
+                    <span class="error-message" id="login-email-error" hidden>Please enter a valid email address.</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="login-password">Password</label>
+                    <input type="password" id="login-password" name="login-password" placeholder="Enter your password">
+                    <span class="error-message" id="login-password-error" hidden>Password is required.</span>
+                </div>
+
+                <div class="flex-between auth-options">
+                    <div class="checkbox-item">
+                        <input type="checkbox" id="remember-me" name="remember-me">
+                        <label for="remember-me">Remember me</label>
+                    </div>
+                    <a href="#" id="forgot-password-link">Forgot password?</a>
+                </div>
+
+                <div class="form-actions auth-actions">
+                    <button type="submit" class="primary-button block-button">Sign In</button>
+                </div>
+
+            </form>
+
+            <p class="auth-footer-text">Don't have an account? <a href="#" id="create-account-link">Create Account</a></p>
+
+        </div>
+    </div>
+
+    <script src="../js/auth.js"></script>
+</body>
+</html>

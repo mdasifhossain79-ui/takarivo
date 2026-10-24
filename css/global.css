@@ -1,0 +1,118 @@
+/* ==========================================================================
+   Takarivo — global.css
+   Purpose: Global styling foundation applied across the whole app.
+   Relies on tokens defined in variables.css.
+   ========================================================================== */
+
+/* Body */
+body {
+    background-color: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-family);
+    font-size: var(--font-size-body);
+    font-weight: var(--font-weight-body);
+    line-height: var(--line-height-body);
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+    color: var(--color-text);
+    font-family: var(--font-family);
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: 600;
+}
+
+h2 {
+    font-size: 22px;
+    font-weight: 600;
+}
+
+h3 {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+h4 {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+/* Paragraph */
+p {
+    color: var(--color-text);
+}
+
+/* Links */
+a {
+    color: var(--color-primary);
+    transition: color 0.15s ease;
+}
+
+a:hover {
+    color: var(--color-primary-dark);
+}
+
+/* Buttons */
+button {
+    background-color: var(--color-primary);
+    color: #FFFFFF;
+    font-family: var(--font-family);
+    font-size: var(--font-size-body);
+    font-weight: 600;
+    padding: var(--space-2) var(--space-4);
+    border-radius: var(--radius-sm);
+    transition: background-color 0.15s ease, transform 0.1s ease;
+}
+
+button:hover {
+    background-color: var(--color-primary-dark);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* Inputs, selects, textareas */
+input,
+select,
+textarea {
+    background-color: var(--color-surface);
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    padding: var(--space-2) var(--space-3);
+    transition: border-color 0.15s ease;
+}
+
+input:hover,
+select:hover,
+textarea:hover {
+    border-color: var(--color-muted);
+}
+
+/* Images */
+img {
+    border-radius: var(--radius-sm);
+}
+
+/* Accessible focus state — applies to all interactive elements */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 2px;
+}
+
+/* Spacing helpers for basic layout */
+main {
+    padding: var(--space-6);
+}
+
+section {
+    margin-bottom: var(--space-6);
+}

@@ -1,0 +1,49 @@
+/* ==========================================================================
+   Takarivo — variables.css
+   Purpose: Central design-token system (colors, spacing, radius, typography)
+   used across all Takarivo stylesheets.
+   ========================================================================== */
+
+:root {
+
+    /* Colors — Brand */
+    --color-primary: #385898;
+    --color-primary-dark: #2D467A;
+
+    /* Colors — Surfaces */
+    --color-background: #FFFFFF;
+    --color-surface: #FFFFFF;
+    --color-elevated: #F2F2F2;
+
+    /* Colors — Text */
+    --color-text: #1C1E21;
+    --color-muted: #666A72;
+
+    /* Colors — Border */
+    --color-border: #D0D3D6;
+
+    /* Colors — Status */
+    --color-success: #1B8A5A;
+    --color-danger: #D93025;
+    --color-warning: #E6A700;
+
+    /* Spacing scale */
+    --space-1: 4px;
+    --space-2: 8px;
+    --space-3: 16px;
+    --space-4: 20px;
+    --space-5: 24px;
+    --space-6: 32px;
+    --space-7: 40px;
+
+    /* Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+
+    /* Typography */
+    --font-family: "Segoe UI", "Segoe UI Historic", Arial, sans-serif;
+    --font-size-body: 12px;
+    --font-weight-body: 400;
+    --line-height-body: 1.34;
+
+}

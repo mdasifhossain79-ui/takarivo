@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Create Account — Takarivo</title>
+    <meta name="description" content="Create your Takarivo account to start tracking your money.">
+
+    <link rel="icon" href="../assets/icons/favicon.ico" type="image/x-icon">
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+    <script src="../js/supabase-config.js"></script>
+    <script src="../js/supabaseClient.js"></script>
+
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/variables.css">
+    <link rel="stylesheet" href="../css/global.css">
+    <link rel="stylesheet" href="../css/components.css">
+    <link rel="stylesheet" href="../css/forms.css">
+    <link rel="stylesheet" href="../css/auth.css">
+    <link rel="stylesheet" href="../css/responsive.css">
+</head>
+<body>
+
+    <div class="auth-page">
+        <div class="auth-card card">
+
+            <div class="auth-brand">
+                <a href="../index.html" class="auth-logo">Takarivo</a>
+                <p class="help-text">Personal Finance Manager</p>
+            </div>
+
+            <form id="register-form" novalidate>
+
+                <div class="form-banner error" id="register-error-banner" hidden>
+                    <span id="register-error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="register-name">Full Name</label>
+                    <input type="text" id="register-name" name="register-name" placeholder="Your full name">
+                    <span class="error-message" id="register-name-error" hidden>Full name is required.</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="register-email">Email</label>
+                    <input type="email" id="register-email" name="register-email" placeholder="you@example.com">
+                    <span class="error-message" id="register-email-error" hidden>Please enter a valid email address.</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="register-password">Password</label>
+                    <input type="password" id="register-password" name="register-password" placeholder="At least 8 characters">
+                    <span class="error-message" id="register-password-error" hidden>Password must be at least 8 characters.</span>
+                </div>
+
+                <div class="form-group">
+                    <label for="register-confirm-password">Confirm Password</label>
+                    <input type="password" id="register-confirm-password" name="register-confirm-password" placeholder="Re-enter your password">
+                    <span class="error-message" id="register-confirm-password-error" hidden>Passwords do not match.</span>
+                </div>
+
+                <div class="checkbox-item form-group">
+                    <input type="checkbox" id="register-terms" name="register-terms">
+                    <label for="register-terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                </div>
+                <span class="error-message" id="register-terms-error" hidden>You must agree to the terms to continue.</span>
+
+                <div class="form-actions auth-actions">
+                    <button type="submit" class="primary-button block-button">Create Account</button>
+                </div>
+
+            </form>
+
+            <p class="auth-footer-text">Already have an account? <a href="login.html">Sign In</a></p>
+
+        </div>
+    </div>
+
+    <script src="../js/auth.js"></script>
+</body>
+</html>
